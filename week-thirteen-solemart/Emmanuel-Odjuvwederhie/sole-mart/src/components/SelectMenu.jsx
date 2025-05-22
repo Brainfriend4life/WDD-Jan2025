@@ -7,6 +7,7 @@ const Drop = () => {
         </button>
         <button className="bg-gray-300 rounded-full text-black text-md px-4 py-1">
           Price{" "}
+          
         </button>
         <button className="bg-gray-300 rounded-full text-black text-md px-4 py-1">
           Size selection{" "}
