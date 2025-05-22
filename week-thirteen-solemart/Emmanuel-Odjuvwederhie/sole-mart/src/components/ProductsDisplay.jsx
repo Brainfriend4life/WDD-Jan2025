@@ -36,7 +36,11 @@ const ProductsDisplay = () => {
                 {product.name}
               </h2>
 
+<<<<<<< HEAD
               <h2 className="ml-55 -mt-6 text-gray-800 text-[18px] font-semibold">
+=======
+              <h2 className="ml-4 text-gray-800 text-[18px] font-semibold">
+>>>>>>> 017109f9fe5ad3a30591d0087516f704b4a26ea4
                 ${product.price}
               </h2>
 
@@ -44,6 +48,7 @@ const ProductsDisplay = () => {
                 {product.numberInStock} shoes available
               </p>
 
+<<<<<<< HEAD
               <p className="ml-38 mt-2">
                 ({product.numberOfReviews} reviews)</p>
                 <div className="flex items-center gap-1">
@@ -52,6 +57,16 @@ const ProductsDisplay = () => {
                   ))}
                 </div>
               
+=======
+              <p className="ml-4 mt-2">
+                ({product.numberOfReviews} reviews)
+                <div className="flex items-center gap-1">
+                  {[...Array(Math.floor(product.rating))].map((_, index) => (
+                    <FaStar key={index} className="text-yellow-400" />
+                  ))}
+                </div>
+              </p>
+>>>>>>> 017109f9fe5ad3a30591d0087516f704b4a26ea4
 
               <div className="mt-4">
                 <button className="bg-blue-950 w-[128px] h-[36px] rounded-[30px] text-[#FFFFFF] font-semibold">
@@ -66,7 +81,33 @@ const ProductsDisplay = () => {
         ))}
       </div>
 
+<<<<<<< HEAD
      
+=======
+      <footer className="p-4 bg-green-800 mt-10 ">
+        <div>
+          <p>Copyright @ 2020 Landify UI kit.</p> All rights reserved.</p>
+          <h1>Company</h1>
+          <ul>
+            <li>
+              <a href="#">About us</a>
+            </li>
+            <li>
+              <a href="#">Blog</a>
+            </li>
+            <li>
+              <a href="#">Contact us</a>
+            </li>
+            <li>
+              <a href="#">Pricing</a>
+            </li>
+            <li>
+              <a href="#">Testimonials</a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+>>>>>>> 017109f9fe5ad3a30591d0087516f704b4a26ea4
     </div>
   );
 };
