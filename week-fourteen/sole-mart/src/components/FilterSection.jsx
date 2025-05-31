@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
 
 const filterOptions = ["Shoe type", "Price", "Size selection", "Color", "Material", "Brand"];
 
@@ -21,11 +20,6 @@ const FilterSection = () => {
             className="flex items-center justify-center bg-gray-200 rounded-2xl hover:bg-cyan-800 w-38 p-2 gap-1.5"
           >
             {label}
-            <FaChevronDown
-              className={`transition-transform duration-200 ${
-                openDropdown === index ? "rotate-180" : ""
-              }`}
-            />
           </button>
 
           {openDropdown === index && (

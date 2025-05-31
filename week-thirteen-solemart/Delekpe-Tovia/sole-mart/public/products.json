@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": "P001",
+      "imageSrc": "/trainers.png",
+      "name": "Trainers",
+      "price": 129.99,
+      "numberInStock": 25,
+      "rating": 4.5,
+      "numberOfReviews": 120,
+      "isLiked": true
+    },
+    {
+      "id": "P002",
+      "imageSrc": "/vans.png",
+      "name": "Vans",
+      "price": 180.00,
+      "numberInStock": 40,
+      "rating": 4.7,
+      "numberOfReviews": 210,
+      "isLiked": false
+    },
+    {
+      "id": "P003",
+      "imageSrc": "/stiletto.png",
+      "name": "Stiletto",
+      "price": 65.00,
+      "numberInStock": 60,
+      "rating": 4.3,
+      "numberOfReviews": 98,
+      "isLiked": true
+    },
+    {
+      "id": "P004",
+      "imageSrc": "/point-hill.png",
+      "name": "Point Hill",
+      "price": 75.00,
+      "numberInStock": 0,
+      "rating": 4.2,
+      "numberOfReviews": 77,
+      "isLiked": false
+    }
+  ]
+}

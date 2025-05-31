@@ -25,13 +25,13 @@ const NavBar = () => {
             </ul>
 
             <div className="flex gap-6 items-center"> 
-                <div className="relative w-full max-w-md mx-auto">
+                <label className="flex w-full max-w-md mx-auto rounded-[4px] py-[7px] px-[12px] pr-[32px] bg-[#F5F5F5]">
                     
                     <input 
                     type="text" placeholder="What are you looking for? " 
-                    className="rounded-[4px] py-[7px] px-[12px] pr-[32px] text-xs leading-[18px] font-normal text-black/50 bg-[#F5F5F5]"/>
-                    <CiSearch className="absolute right-[20px] top-1/2 transform -translate-y-1/2 w-[20px] h-[20px]" />
-                </div>
+                    className="flex-grow focus:outline-none text-xs font-normal text-black/50 "/>
+                    <button><CiSearch className=" w-[20px] h-[20px]" /></button>
+                </label>
                 <GrFavorite className="w-[32px] h-[32px]" />
                 <IoCartOutline className="w-[32px] h-[32px]" />
             </div>

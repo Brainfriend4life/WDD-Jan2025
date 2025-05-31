@@ -13,10 +13,10 @@ const FilterSection = () => {
     ];
 
     return (
-        <ul className="flex gap-8 justify-center items-center h-[60px]  mt-[20px]">
+        <ul className="flex gap-8 justify-center items-center h-[60px]  my-[20px]">
                 {filterList.map(link => (
                     <li className="text-sm font-[500] " key={link.name}>
-                        <button className="flex  justify-center items-center gap-2 py-[10px] px-[14px] w-[120px] h-[41px] rounded-[28px] bg-[#EBEDEC] gap-[7px]">
+                        <button className="flex  justify-center items-center gap-2 py-[10px] px-[14px]  h-[41px] rounded-[28px] bg-[#EBEDEC] gap-[7px]">
                             {link.name} <MdKeyboardArrowDown /> </button>
                     </li>
                 )

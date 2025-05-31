@@ -1,8 +1,6 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
-
 
 
 const Productsdisplay = () => {
@@ -42,7 +40,7 @@ const Productsdisplay = () => {
                 <p className="font-extralight text-gray-500">{product.numberInStock} types of shoes available </p>
                {product.ratings !== undefined && (
                 <div className="flex items-center mt-3 mb-1 ">
-                  {renderStars(product.ratings)}
+                  {/* {renderStars(product.ratings)} */}
                   <span className="text-sm text-gray-500 ml-2">({product.numberOfReviews})</span>
                 </div>
 )}
@@ -65,19 +63,19 @@ const Productsdisplay = () => {
 
 
 
-const renderStars = (rating) => {
-  const stars = [];
-  for (let i = 1; i <= 5; i++) {
-    if (rating >= i) {
-      stars.push(<FaStar key={i} color="gold" />);
-    } else if (rating >= i - 0.5) {
-      stars.push(<FaStarHalfAlt key={i} color="gold" />);
-    } else {
-      stars.push(<FaRegStar key={i} color="gold" />);
-    }
-  }
-  return stars;
-};
+// const renderStars = (rating) => {
+//   const stars = [];
+//   for (let i = 1; i <= 5; i++) {
+//     if (rating >= i) {
+//       stars.push(<FaStar key={i} color="gold" />);
+//     } else if (rating >= i - 0.5) {
+//       stars.push(<FaStarHalfAlt key={i} color="gold" />);
+//     } else {
+//       stars.push(<FaRegStar key={i} color="gold" />);
+//     }
+//   }
+//   return stars;
+// };
 
 
 export default Productsdisplay
