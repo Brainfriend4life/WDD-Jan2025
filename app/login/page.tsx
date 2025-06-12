@@ -1,37 +1,5 @@
-'use server'
-
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
-import { createServerActionClient } from '@supabase/auth-helpers-nextjs'
 import Link from 'next/link'
-
-export async function login(formData: FormData) {
-  const supabase = createServerActionClient({ cookies })
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
-
-  const { error } = await supabase.auth.signInWithPassword({ email, password })
-  if (error) {
-    console.error('Login error:', error.message)
-    return
-  }
-
-  redirect('/dashboard')
-}
-
-export async function signup(formData: FormData) {
-  const supabase = createServerActionClient({ cookies })
-  const email = formData.get('email') as string
-  const password = formData.get('password') as string
-
-  const { error } = await supabase.auth.signUp({ email, password })
-  if (error) {
-    console.error('Signup error:', error.message)
-    return
-  }
-
-  redirect('/dashboard')
-}
+import { login, signup } from './actions'; 
 
 export default function LoginPage() {
   return (

@@ -1,3 +1,4 @@
+'use client'
 import React, { useState } from "react";
 
 export default function AddWorkoutForm({ onAdd }: { onAdd: (workout: any) => void }) {
@@ -11,7 +12,6 @@ export default function AddWorkoutForm({ onAdd }: { onAdd: (workout: any) => voi
     const newWorkout = { name, category, date };
     onAdd(newWorkout);
 
-    // Clear form
     setName("");
     setCategory("");
     setDate("");

@@ -1,7 +1,6 @@
 import { auth } from '@/lib/auth';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
-import { login } from './login/page';
 
 export default async function LandingPage() {
   const userId  = await auth();
