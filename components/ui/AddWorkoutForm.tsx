@@ -1,7 +1,13 @@
 'use client'
 import React, { useState } from "react";
 
-export default function AddWorkoutForm({ onAdd }: { onAdd: (workout: any) => void }) {
+type WorkoutInput = {
+  name: string;
+  category: string;
+  date: string;
+};
+
+export default function AddWorkoutForm({ onAdd }: { onAdd: (workout: WorkoutInput) => void }) {
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
   const [date, setDate] = useState("");
@@ -38,4 +44,3 @@ export default function AddWorkoutForm({ onAdd }: { onAdd: (workout: any) => voi
     </form>
   );
 }
-

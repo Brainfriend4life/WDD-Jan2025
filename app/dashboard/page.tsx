@@ -1,28 +1,50 @@
-'use client'
-import { redirect } from 'next/navigation';
-import { auth } from '@/lib/auth';
-import { getUserId } from "@/lib/getUserId";
-import { fetchWorkouts, updateWorkout, deleteWorkout } from "@/lib/workouts";
-import { useEffect, useState } from "react";
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { getUserId } from '@/lib/getUserId';
+import { fetchWorkouts } from '@/lib/workouts';
+
+type Workout = {
+  id: string;
+  name: string;
+  date: string;
+};
+
 export default function Dashboard() {
   const [userId, setUserId] = useState<string | null>(null);
-  const [workouts,] = useState([]);
-  const [filter,] = useState("All");
+  const [workouts, setWorkouts] = useState<Workout[]>([]);
 
   useEffect(() => {
     const load = async () => {
       const id = await getUserId();
       if (!id) return;
+
       setUserId(id);
 
-      const data  = await fetchWorkouts(id);
-      fetchWorkouts(id);
+      const data = await fetchWorkouts(id);
+      if (Array.isArray(data)) {
+        setWorkouts(data);
+      } else {
+        setWorkouts([]);
+      }
     };
+
     load();
   }, []);
+
   return (
     <div>
-      {/* render your dashboard here */}
+      <h1>Welcome to your dashboard</h1>
+      <p>User ID: {userId}</p>
+
+      <h2>Your Workouts</h2>
+      <ul>
+        {workouts.map((workout) => (
+          <li key={workout.id}>
+            {workout.name} - {workout.date}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

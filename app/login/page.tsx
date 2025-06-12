@@ -1,28 +1,51 @@
-import Link from 'next/link'
-import { login, signup } from './actions'; 
+'use client';
+import { useEffect, useState } from "react";
+import { getUserId } from "@/lib/getUserId";
+import { fetchWorkouts } from "@/lib/workouts";
 
-export default function LoginPage() {
+type Workout = {
+  id: string;
+  name: string;
+  date: string;
+};
+
+export default function Dashboard() {
+  const [userId, setUserId] = useState<string | null>(null);
+  const [workouts, setWorkouts] = useState<Workout[]>([]);
+  
+
+  useEffect(() => {
+    const load = async () => {
+      const id = await getUserId();
+      if (!id) return;
+
+      setUserId(id);
+
+      const data = await fetchWorkouts(id);
+
+      if (Array.isArray(data)) {
+        setWorkouts(data);
+      } else {
+        setWorkouts([]); // fallback if data isn't an array
+      }
+    };
+
+    load();
+  }, []);
+
   return (
-    <form className="space-y-4">
-      <label htmlFor="email">Email:</label>
-      <input id="email" name="email" type="email" required />
+    <div>
+      <h1>Welcome to your dashboard</h1>
+      <p>User ID: {userId}</p>
 
-      <label htmlFor="password">Password:</label>
-      <input id="password" name="password" type="password" required />
-
-      <div className="flex gap-4">
-        <button formAction={login}>Log in</button>
-        <button formAction={signup}>Sign up</button>
-      </div>
-
-      <div className="mt-4">
-        <Link href="/login" className="text-blue-500 underline block mb-2">
-          Sign In
-        </Link>
-        <Link href="/login" className="text-blue-500 underline">
-          Sign Up
-        </Link>
-      </div>
-    </form>
-  )
+      <h2>Your Workouts</h2>
+      <ul>
+        {workouts.map((workout) => (
+          <li key={workout.id}>
+            {workout.name} - {workout.date}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
