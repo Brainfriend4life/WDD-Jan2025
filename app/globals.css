@@ -1,3 +1,6 @@
+/* ./src/index.css or ./styles/globals.css */
+@import "tailwindcss";
+
 *,
 *::before,
 *::after {
@@ -15,6 +18,7 @@ html, body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
+
 :root {
   --primary: #3b82f6;
   --secondary: #9333ea;
@@ -113,6 +117,7 @@ button:hover {
   background: transparent;
 }
 
+/* Utility helpers */
 .mt-2 { margin-top: 0.5rem; }
 .mb-2 { margin-bottom: 0.5rem; }
 .text-center { text-align: center; }

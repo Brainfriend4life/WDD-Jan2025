@@ -1,51 +1,16 @@
-'use client';
-import { useEffect, useState } from "react";
-import { getUserId } from "@/lib/getUserId";
-import { fetchWorkouts } from "@/lib/workouts";
+import { login, signup } from './actions'
 
-type Workout = {
-  id: string;
-  name: string;
-  date: string;
-};
-
-export default function Dashboard() {
-  const [userId, setUserId] = useState<string | null>(null);
-  const [workouts, setWorkouts] = useState<Workout[]>([]);
-  
-
-  useEffect(() => {
-    const load = async () => {
-      const id = await getUserId();
-      if (!id) return;
-
-      setUserId(id);
-
-      const data = await fetchWorkouts(id);
-
-      if (Array.isArray(data)) {
-        setWorkouts(data);
-      } else {
-        setWorkouts([]); // fallback if data isn't an array
-      }
-    };
-
-    load();
-  }, []);
-
+export default function LoginPage() {
   return (
-    <div>
-      <h1>Welcome to your dashboard</h1>
-      <p>User ID: {userId}</p>
-
-      <h2>Your Workouts</h2>
-      <ul>
-        {workouts.map((workout) => (
-          <li key={workout.id}>
-            {workout.name} - {workout.date}
-          </li>
-        ))}
-      </ul>
+    <div className="text-center">
+    <form>
+      <label htmlFor="email">Email:</label>
+      <input id="email" name="email" type="email" required />
+      <label htmlFor="password">Password:</label>
+      <input id="password" name="password" type="password" required />
+      <button formAction={login}>Log in</button>
+      <button formAction={signup}>Sign up</button>
+    </form>
     </div>
-  );
+  )
 }
