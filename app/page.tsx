@@ -12,7 +12,7 @@ export default async function LandingPage() {
   return (
     <main className="bg-[url('/images/bg.jpg')] bg-cover bg-center min-h-screen text-center p-8">
       <h1 className="text-green-700 text-5xl font-bold mt-20">
-        Welcome to Workout Planner
+        Welcome to your Workout Planner
       </h1>
       <Link href="/login" className="text-amber-300 text-3xl text-right underline block -mt-15">
         Sign In
